@@ -14,5 +14,5 @@ spec:
     spec:
       containers:
         - name: ibot
-          image: ghcr.io/k3ilona/ibot:0.1.0-cce5867-dev # {"$imagepolicy": "flux-system:ibot"}
+          image: ghcr.io/k3ilona/ibot:0.1.1-dev-4738a12 # {"$imagepolicy": "flux-system:ibot"}
           imagePullPolicy: IfNotPresent
