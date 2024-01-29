@@ -1,14 +1,40 @@
-apiVersion: helm.toolkit.fluxcd.io/v2beta2
-kind: HelmRelease
+---
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: ibot
   namespace: ibot-dev
 spec:
-  chart:
+  selector:
+    matchLabels:
+      app: ibot
+  template:
+    metadata:
+      labels:
+        app: ibot
     spec:
-      chart: ./helm
-      reconcileStrategy: ChartVersion
-      sourceRef:
-        kind: GitRepository
-        name: ibot
-  interval: 3m0s
+      containers:
+        - name: ibot
+          securityContext:
+            privileged: true
+          volumeMounts:
+          - mountPath: /dev/mem
+            name: dev-mem
+          image: ghcr.io/k3ilona/ibot:0.1.3-dev-c97f46b # {"$imagepolicy": "flux-system:ibot"}
+          imagePullPolicy: IfNotPresent
+          env:
+              - name: SLACK_AUTH_TOKEN
+                valueFrom:
+                  secretKeyRef:
+                    name: token
+                    key: token
+              - name: SLACK_CHANNEL_ID
+                valueFrom:
+                  secretKeyRef:
+                    name: channel-id
+                    key: channel-id
+              - name: SLACK_APP_TOKEN
+                valueFrom:
+                  secretKeyRef:
+                    name: appToken
+                    key: appToken
