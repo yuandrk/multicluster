@@ -8,7 +8,8 @@ spec:
   imageRepositoryRef:
     name: ibot
   filterTags:
-    pattern: '\d+\.\d+\.\d+\-dev-.*'
+    pattern: '^\d\.\d\.\d-dev-[a-f0-9]+-(?P<ts>\d+)'
+    extract: '$ts'
   policy:
-    semver:
-      range: '>=0.0.0-dev-'
+    numerical:
+      order: asc
