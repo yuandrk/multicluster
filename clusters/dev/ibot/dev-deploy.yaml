@@ -17,19 +17,4 @@ spec:
         - name: ibot
           image: ghcr.io/k3ilona/ibot:0.1.3-dev-c97f46b # {"$imagepolicy": "flux-system:ibot"}
           imagePullPolicy: IfNotPresent
-          env:
-              - name: SLACK_AUTH_TOKEN
-                valueFrom:
-                  secretKeyRef:
-                    name: token
-                    key: token
-              - name: SLACK_CHANNEL_ID
-                valueFrom:
-                  secretKeyRef:
-                    name: channel-id
-                    key: channel-id
-              - name: SLACK_APP_TOKEN
-                valueFrom:
-                  secretKeyRef:
-                    name: appToken
-                    key: appToken
+         
