@@ -7,6 +7,14 @@ spec:
   selector:
     matchLabels:
       app: ibot
+  chart:
+    spec:
+      chart: ./helm
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: GitRepository
+        name: ibot
+  interval: 1m0s
   template:
     metadata:
       labels:
