@@ -21,17 +21,17 @@ spec:
             - name: SLACK_APP_TOKEN
               valueFrom:
                 secretKeyRef:
-                  name: ibot-app-token
+                  name: ibot
                   key: appToken
             - name: SLACK_AUTH_TOKEN
               valueFrom:
                 secretKeyRef:
-                  name: ibot-auth-token
+                  name: ibot
                   key: token
             - name: SLACK_CHANNEL_ID
               valueFrom:
                 secretKeyRef:
-                  name: ibot-channel-id
+                  name: ibot
                   key: channel-id
           resources:
             limits:
