@@ -11,4 +11,4 @@ spec:
     pattern: '\d+\.\d+\.\d+\-dev-.*'
   policy:
     semver:
-      range: '*'
+      range: '^0.x-0'
