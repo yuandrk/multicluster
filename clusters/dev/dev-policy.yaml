@@ -8,7 +8,7 @@ spec:
   imageRepositoryRef:
     name: ibot
   filterTags:
-    pattern: '.*-dev.*'
+    pattern: '\d+\.\d+\.\d+\-dev-.*'
   policy:
     semver:
-      range: '^0.x-0'
+      range: '*'
