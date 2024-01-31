@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: ibot
-          image: ghcr.io/k3ilona/ibot:0.1.4-dev-496c79f-1706636650 # {"$imagepolicy": "flux-system:ibot"}
+          image: ghcr.io/k3ilona/ibot:0.1.4-dev-b44b9c8-1706685859 # {"$imagepolicy": "flux-system:ibot"}
           imagePullPolicy: IfNotPresent
           env:
             - name: SLACK_APP_TOKEN
